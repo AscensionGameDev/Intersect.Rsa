@@ -4,12 +4,34 @@ namespace Intersect.Rsa;
 
 public class RsaKey
 {
-    public RSAParameters Parameters { get; private set; }
+    private RSAParameters _parameters;
 
     public RsaKey(RSAParameters parameters)
     {
         Parameters = parameters;
     }
+
+    public RSAParameters Parameters
+    {
+        get => _parameters;
+        set
+        {
+            _parameters = value;
+
+            try
+            {
+                using var rsa = new RSACryptoServiceProvider();
+                rsa.ImportParameters(Parameters);
+                IsPublic = rsa.PublicOnly;
+            }
+            catch
+            {
+                IsPublic = false;
+            }
+        }
+    }
+
+    public bool IsPublic { get; private set; }
 
     public RsaKey(Stream stream, bool autoClose = false)
     {
