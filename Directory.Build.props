@@ -1,0 +1,7 @@
+<Project>
+
+  <PropertyGroup>
+    <IntersectRepoPath Condition="'$(IntersectRepoPath)' == ''">$(MSBuildProjectDirectory)\..</IntersectRepoPath>
+  </PropertyGroup>
+
+</Project>
