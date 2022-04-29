@@ -1,8 +1,6 @@
-name: Intersect.Rsa/main
+name: Intersect.Rsa/pr
 
-on:
-  push:
-    branches: [ main ]
+on: pull_request
 
 jobs:
   build:
