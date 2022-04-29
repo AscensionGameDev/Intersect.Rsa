@@ -49,7 +49,7 @@ jobs:
         uses: actions/download-artifact@v2.0.7
         with:
           name: '${{ needs.build.outputs.artifact_name }}'
-      - name: Publish Release nupkg
-        run: dotnet nuget push 'Release/${{ needs.build.outputs.nupkg_base_name }}.nupkg' --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
       - name: Publish Debug nupkg
         run: dotnet nuget push 'Debug/${{ needs.build.outputs.nupkg_base_name }}-debug.nupkg' --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
+      - name: Publish Release nupkg
+        run: dotnet nuget push 'Release/${{ needs.build.outputs.nupkg_base_name }}.nupkg' --source https://api.nuget.org/v3/index.json --api-key ${{ secrets.NUGET_API_KEY }}
