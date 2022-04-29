@@ -41,7 +41,7 @@ public class RsaKey
         using var rsa = new RSACryptoServiceProvider();
         rsa.ImportParameters(Parameters);
         var buffer = rsa.ExportCspBlob(!rsa.PublicOnly);
-        stream.Write(buffer);
+        stream.Write(buffer, 0, buffer.Length);
 
         if (autoClose)
         {
