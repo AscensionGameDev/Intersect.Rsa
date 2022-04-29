@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <PropertyGroup Label="Package Properties">
+    <PackageId>AscensionGameDev.$(AssemblyName)</PackageId>
     <Authors>Ascension Game Development</Authors>
     <Copyright>Copyright © Ascension Game Dev 2022</Copyright>
     <Description>Intersect 2D Game Creation Suite</Description>
